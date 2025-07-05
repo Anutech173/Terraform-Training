@@ -1,10 +1,11 @@
 data "aws_ami" "amzlinux2" {
-  most_recent      = true
-  owners           = ["amazon"]
+
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["myami-*"]
+    values = ["al2023-ami-*-kernel-6.1-x86_64"]
   }
 
   filter {
@@ -15,5 +16,10 @@ data "aws_ami" "amzlinux2" {
   filter {
     name   = "virtualization-type"
     values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
   }
 }
